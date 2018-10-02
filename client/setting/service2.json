@@ -1,0 +1,4 @@
+{
+    "ttl": 365,
+    "subject": "/C=JP/ST=Tokyo/L=Sumida-ku/O=Hoge,Inc./OU=DevelopmentHQ/CN=service2/emailAddress=service2@example.com"
+  }

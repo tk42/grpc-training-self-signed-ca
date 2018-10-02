@@ -1,0 +1,32 @@
+version: "3"
+services:
+  create_ca_cert:
+    build: .
+    volumes:
+      - "./bin:/usr/local/bin"
+      - "./ca:/ca"
+      - "./etc_pki_CA:/etc_pki_CA"
+    working_dir: "/ca"
+    entrypoint: [ "create_ca.sh" ]
+  create_client_cert:
+    build: .
+    volumes:
+      - "./bin:/usr/local/bin"
+      - "./ca:/ca"
+      - "./client/setting:/setting"
+      - "./client/out:/out"
+    entrypoint: [ "create_client.sh" ]
+  create_server_cert:
+    build: .
+    volumes:
+      - "./bin:/usr/local/bin"
+      - "./ca:/ca"
+      - "./server/setting:/setting"
+      - "./server/out:/out"
+    entrypoint: [ "create_server.sh" ]
+  view_p12:
+    build: .
+    volumes:
+      - "./client/out:/work/client/out"
+      - "./server/out:/work/server/out"
+    entrypoint: ["openssl", "pkcs12", "-nodes", "-info", "-passin", "pass:", "-in"]
