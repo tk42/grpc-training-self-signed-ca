@@ -3,6 +3,8 @@ grpc-training-self-signed-ca
 
 オレオレ認証局
 
+参考資料： [https://qiita.com/NewGyu/items/80bb6a1c9f57ad62c22a](https://qiita.com/NewGyu/items/80bb6a1c9f57ad62c22a)
+
 ## Create CA
 
 ```
