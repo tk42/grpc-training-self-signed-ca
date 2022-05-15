@@ -1,6 +1,7 @@
-FROM centos
+FROM ubuntu:latest
 
-RUN yum install -y epel-release \
-  && yum install -y openssl jq \
-  && mkdir -p /work \
-  && mkdir -p /seed
+USER root
+
+RUN apt-get install -y openssl jq
+RUN mkdir -p /work
+RUN mkdir -p /seed
